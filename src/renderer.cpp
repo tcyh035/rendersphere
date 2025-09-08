@@ -25,10 +25,9 @@ void Renderer::render(const Scene& scene, const std::string& filename) {
             float y = (1.0f - 2.0f * ((j + 0.5) / (float)scene.height)) * scale;
 
             Eigen::Vector3f dir = Eigen::Vector3f(x, y, -1).normalized();
-            framebuffer[index++] = scene.castRay(eye_pos, dir, 0);
+            framebuffer[index++] = scene.castRay(eye_pos, dir);
         }
     }
-
 
     Utils::WriteImage(framebuffer, scene.width, scene.height, filename);
 }

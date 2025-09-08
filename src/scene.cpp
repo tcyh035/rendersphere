@@ -2,13 +2,8 @@
 
 #include <cfloat>
 
-Eigen::Vector3f Scene::castRay(const Eigen::Vector3f &orig, const Eigen::Vector3f &dir, int depth) const
+Eigen::Vector3f Scene::castRay(const Eigen::Vector3f &orig, const Eigen::Vector3f &dir) const
 {
-    // only calulate depth up to 3
-    if (depth > 3) {
-        return Eigen::Vector3f();
-    }
-
     Eigen::Vector3f hitColor = this->backgroundColor;
     // find nearest intersection
     // use FLT_MAX/2 to avoid overflow
