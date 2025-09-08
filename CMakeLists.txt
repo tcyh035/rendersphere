@@ -11,3 +11,8 @@ set(SOURCE_FILES
 )
 
 add_executable(rendersphere ${SOURCE_FILES})
+
+add_executable(simple_test tests/simple_test.cpp src/renderer.cpp src/scene.cpp)
+
+enable_testing()
+add_test(NAME simple_test COMMAND simple_test)
