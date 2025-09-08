@@ -1,6 +1,6 @@
 #include <Eigen/Core>
 
-#include "scene.hpp"
+#include "scene.h"
 #include "sphere.hpp"
 #include "light.hpp"
 

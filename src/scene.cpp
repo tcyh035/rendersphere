@@ -1,4 +1,4 @@
-#include "scene.hpp"
+#include "scene.h"
 
 Eigen::Vector3f Scene::castRay(const Eigen::Vector3f &orig, const Eigen::Vector3f &dir, int depth) const
 {
