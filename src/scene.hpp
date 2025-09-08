@@ -11,7 +11,13 @@ class Scene {
 public:
     int width;
     int height;
-    Scene(int w, int h) : width(w), height(h) {}
+    float fov;
+    Eigen::Vector3f backgroundColor;
+
+    Scene(int w, int h) : width(w), height(h) {
+        fov = 90.0f;
+        backgroundColor = Eigen::Vector3f(0.2, 0.7, 0.8); // according to exam requirement
+    }
 
     void Add(std::unique_ptr<Sphere> sphere) {
         spheres.push_back(std::move(sphere));
