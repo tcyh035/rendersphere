@@ -14,11 +14,12 @@ int main(int argc, char** argv) {
     sphere->color = Eigen::Vector3f(1,0,0);
     sphere->Kd = 0.8f;
     sphere->Ks = 0.3f;
-    sphere->specularExponent = 50.0f;
+    sphere->Ka = 0.1f;
+    sphere->specularExponent = 20.0f;
+
 
     scene.Add(std::move(sphere));
-
-    auto light = std::make_unique<Light>();
+    auto light = std::make_unique<Light>(Eigen::Vector3f(5.0f, 5.0f, 5.0f), Eigen::Vector3f(1.0f, 1.0f, 1.0f));
     scene.Add(std::move(light));
 
     Renderer renderer;

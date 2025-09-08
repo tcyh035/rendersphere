@@ -10,7 +10,7 @@ public:
     
     // material properties
     Eigen::Vector3f color;
-    float Kd, Ks;
+    float Kd, Ks, Ka;
 
     float specularExponent;
 
@@ -18,18 +18,20 @@ public:
          const float& c, float& x0, float& x1)
     {
         float discr = b * b - 4 * a * c;
-        if (discr < 0)
+        if (discr < 0) {
             return false;
-        else if (discr == 0)
+        }
+        else if (discr == 0) {
             x0 = x1 = -0.5 * b / a;
-        else
-        {
+        } else {
             float q = (b > 0) ? -0.5 * (b + sqrt(discr)) : -0.5 * (b - sqrt(discr));
             x0 = q / a;
             x1 = c / q;
         }
-        if (x0 > x1)
+        if (x0 > x1) {
             std::swap(x0, x1);
+        }
+
         return true;
     }
 
@@ -40,14 +42,17 @@ public:
         float b = 2 * dir.dot(L);
         float c = L.dot(L) - radius * radius;
         float t0, t1;
-        if (!solveQuadratic(a, b, c, t0, t1))
+        if (!solveQuadratic(a, b, c, t0, t1)) {
             return false;
-        if (t0 < 0)
+        }
+        if (t0 < 0) {
             t0 = t1;
-        if (t0 < 0)
+        }
+        if (t0 < 0) {
             return false;
-        tnear = t0;
+        }
 
+        tnear = t0;
         return true;
     }
 
