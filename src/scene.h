@@ -29,6 +29,8 @@ public:
 
     std::vector<std::unique_ptr<Sphere>> spheres;
     std::vector<std::unique_ptr<Light>> lights;
+    
+    Eigen::Vector3f castRay(const Eigen::Vector3f &orig, const Eigen::Vector3f &dir, int depth) const;
 };
 
 #endif

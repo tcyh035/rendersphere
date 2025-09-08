@@ -14,8 +14,8 @@ public:
 
     float specularExponent;
 
-    
-    static bool solveQuadratic(const float& a, const float& b, const float& c, float& x0, float& x1)
+    static bool solveQuadratic(const float& a, const float& b,
+         const float& c, float& x0, float& x1)
     {
         float discr = b * b - 4 * a * c;
         if (discr < 0)

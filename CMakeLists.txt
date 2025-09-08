@@ -7,6 +7,7 @@ include_directories(include)
 set(SOURCE_FILES
     src/main.cpp
     src/renderer.cpp
+    src/scene.cpp
 )
 
 add_executable(rendersphere ${SOURCE_FILES})
